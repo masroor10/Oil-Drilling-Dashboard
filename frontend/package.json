@@ -34,6 +34,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "build": "react-scripts build",
     "build:dev": "set NODE_OPTIONS=--max_old_space_size=4096 && webpack --config webpack.development.config.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
