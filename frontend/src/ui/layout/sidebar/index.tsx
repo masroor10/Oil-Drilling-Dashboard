@@ -23,7 +23,6 @@ export const Sidebar: FC<SidebarProps> = ({
   isDrawer
 }) => {
   const theme = useTheme();
-  const isXs = theme.breakpoints.down('sm');
 
   return (
     <Box position={'relative'}>
@@ -32,7 +31,7 @@ export const Sidebar: FC<SidebarProps> = ({
         sx={{
           borderRadius: isCollapsed ? '16px' : '8px',
           ...(isDrawer ? {} : sidebarContainer),
-          width: isXs ? '100%' : isCollapsed ? '80px' : '282px',
+          width: isCollapsed ? '80px' : '282px',
           display: { xs: isDrawer ? 'block' : 'none', sm: 'none', md: 'block' },
           transition: 'width 0.2s ease-in-out'
         }}
