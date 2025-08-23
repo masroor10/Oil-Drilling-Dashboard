@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+.layout-main {
+  width: calc(100% - 280px - 24px);
+  margin-left: auto;
+  background-color: #fafdff;
+
+  &.collapsed {
+    width: calc(100% - 80px - 24px);
+    margin-left: auto;
+    background-color: #fafdff;
+  }
+}
+
+.layout-mainfull {
+  width: calc(100% - 80px - 24px);
+  margin-left: auto;
+  background-color: #fafdff;
+}
+
+@media (max-width: 600px) {
+  .layout-main {
+    width: auto;
+    margin-left: auto;
+    background-color: #fafdff;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1024px) {
+  .layout-main {
+    width: auto;
+    margin-left: auto;
+    background-color: #fafdff;
+  }
+}

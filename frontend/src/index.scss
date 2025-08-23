@@ -1,0 +1,19 @@
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  overscroll-behavior: contain;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d6dadd;
+  border-radius: 12px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f4f6f8;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  transition: background-color 0.3s ease-in-out;
+}
+
