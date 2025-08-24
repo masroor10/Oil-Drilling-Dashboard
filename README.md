@@ -52,4 +52,47 @@ Drilling companies generate massive amounts of well data, including depths, rock
 ---
 
 ## 3. Proposed Architecture
+**Explanation:**
+
+- **Frontend:** React with MUI, organized into Layout (Header + Sidebar + Outlet) and Dashboard (Tabs: Data Visualization, Chatbot).  
+- **Backend:** Express server handling file uploads, parsing Excel data using `xlsx` library, and providing API endpoints for chatbot integration.  
+- **Persistence:** Currently stored in server file system; database can be added later (PostgreSQL, AWS RDS).  
+- **Chatbot:** AI calls via API key; tested with Postman but API quota may limit live usage.
+
+---
+
+## 4. Component Design
+
+| Component               | Description                                               |
+|-------------------------|-----------------------------------------------------------|
+| Layout                  | Header, Sidebar with well list, and Outlet for content.  |
+| Dashboard               | Tabs: Data Visualization (charts), Chatbot (AI interface).|
+| FileUpload              | Upload button, Excel parsing, backend POST request.       |
+| WellDataVisualization   | Chart.js visualization of depth vs rock composition, DT, GR. |
+| Chatbot                 | Messages list, input box, send button, AI response display.|
+
+---
+
+## 5. Data Flow
+
+1. User selects a well from sidebar → Frontend fetches details from backend → Updates dashboard.  
+2. User uploads Excel file → Frontend sends POST request to backend → Backend stores file and parses data → Sends success/failure → Frontend updates chart.  
+3. User asks question in Chatbot → Frontend sends message + well data context to backend → Backend calls AI API → AI response returned → Displayed in chat UI (if quota limit is not full).  
+
+---
+
+## 6. Deployment Strategy
+
+### Frontend
+```bash
+cd frontend
+npm install
+npm start
+```
+### Frontend
+```bash
+cd backend
+npm install
+npm start
+```
 
