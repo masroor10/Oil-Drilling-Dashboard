@@ -151,7 +151,10 @@ jobs:
 ## 8. ScreenShots
 <img width="1871" height="860" alt="image" src="https://github.com/user-attachments/assets/f17d89d1-b695-423e-84b1-52f92d4ba3ea" />
 <img width="1878" height="847" alt="image" src="https://github.com/user-attachments/assets/54f858b4-90a8-402e-93f7-79535e90941e" />
-<img width="244" height="532" alt="image" src="https://github.com/user-attachments/assets/7f150817-a7bd-420b-9e4c-e9885bde414b" />
+<img width="237" height="520" alt="image" src="https://github.com/user-attachments/assets/9a7b08c6-e8ab-4eed-8447-acd7cde46a38" />
+<img width="1894" height="858" alt="image" src="https://github.com/user-attachments/assets/11802dc1-b9de-4a72-8b99-70fad781dace" />
+
+
 
 
 
