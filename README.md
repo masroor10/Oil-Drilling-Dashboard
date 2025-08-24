@@ -1,46 +1,164 @@
-# Getting Started with Create React App
+# AI SaaS Platform for Well Drilling Data
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Author:** Masroor Ahmed  
+**Date:** 2025-08-24  
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 1. Problem Statement
 
-### `npm start`
+Drilling companies generate massive amounts of well data, including depths, rock composition, drilling times (DT), and gamma-ray (GR) measurements. Manual analysis and visualization are cumbersome, leading to slower decision-making.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Goal:** Build a web-based AI SaaS platform that allows well drilling companies to:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Manage and visualize well data interactively.
+- Upload well data files and persist them.
+- Query data via an AI chatbot for insights.
+- Access a responsive UI across devices.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 2. Requirements
 
-### `npm run build`
+### Functional Requirements
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Well List Panel:**
+- Sidebar displaying a list of wells (mock data).
+- Clickable well items to show well details dynamically in dashboard.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**File Upload & Data Visualization:**
+- Upload Excel files with well data.
+- Persist uploaded files (local storage / server folder).
+- Visualize well metrics: depth (y-axis) vs rock composition, DT, GR.
+- Show success/error messages on upload.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Chatbot Integration:**
+- Chat interface for asking questions about uploaded well data.
+- Display user messages and AI responses.
+- Use API for AI responses (Integrated but my quota limit reached).
 
-### `npm run eject`
+**Responsive Design:**
+- UI adjusts for desktop, tablet, and mobile.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**Deployment & Hosting:**
+- Host frontend on GitHub Pages (Paid Feature).
+- Host backend on AWS EC2 / Elastic Beanstalk.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Non-Functional Requirements
+- Scalable architecture for multiple wells.
+- Easy maintenance and CI/CD integration.
+- Monitoring of backend API health and frontend performance.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 3. Proposed Architecture Workflows
 
-## Learn More
+<img width="790" height="634" alt="image" src="https://github.com/user-attachments/assets/04c6c160-815c-48b7-8f65-f56c96e4e730" />
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
+**Explanation:**
+
+- **Frontend:** React with MUI, organized into Layout (Header + Sidebar + Outlet) and Dashboard (Tabs: Data Visualization, Chatbot).  
+- **Backend:** Express server handling file uploads, parsing Excel data using `xlsx` library, and providing API endpoints for chatbot integration.  
+- **Persistence:** Currently stored in server file system; database can be added later (PostgreSQL, AWS RDS).  
+- **Chatbot:** AI calls via API key; tested with Postman but API quota may limit live usage.
+
+---
+
+## 4. Component Design
+
+| Component               | Description                                               |
+|-------------------------|-----------------------------------------------------------|
+| Layout                  | Header, Sidebar with well list, and Outlet for content.  |
+| Dashboard               | Tabs: Data Visualization (charts), Chatbot (AI interface).|
+| FileUpload              | Upload button, Excel parsing, backend POST request.       |
+| WellDataVisualization   | Chart.js visualization of depth vs rock composition, DT, GR. |
+| Chatbot                 | Messages list, input box, send button, AI response display.|
+
+---
+
+## 5. Data Flow
+
+
+1. User selects a well from sidebar → Frontend fetches details from backend → Updates dashboard.  
+2. User uploads Excel file → Frontend sends POST request to backend → Backend stores file and parses data → Sends success/failure → Frontend updates chart.  
+3. User asks question in Chatbot → Frontend sends message + well data context to backend → Backend calls AI API → AI response returned → Displayed in chat UI (if quota limit is not full).  
+
+---
+
+## 6. Deployment Strategy
+
+### Frontend
+```bash
+cd frontend
+npm install
+npm start
+```
+### Backend
+```bash
+cd backend
+npm install
+npm start
+```
+---
+
+---
+## 7. CI/CD Pipeline: Deploy Frontend to GitHub Pages
+
+The frontend of this project is automatically built and deployed to GitHub Pages using GitHub Actions. The pipeline triggers on pushes to the `main` branch.
+
+### Workflow Configuration
+
+```yaml
+name: Deploy Frontend to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        working-directory: frontend
+        run: npm install
+
+      - name: Build
+        working-directory: frontend
+        run: NODE_OPTIONS="--max_old_space_size=4096" npm run build
+
+      - name: Deploy
+        working-directory: frontend
+        run: |
+          git config --global user.name "masroor10"
+          git config --global user.email "102370535+masroor10@users.noreply.github.com"
+          npx gh-pages -d build -r https://x-access-token:${{ secrets.OIL_TOKEN }}@github.com/${{ github.repository }}.git
+```
+## 8. ScreenShots
+<img width="1871" height="860" alt="image" src="https://github.com/user-attachments/assets/f17d89d1-b695-423e-84b1-52f92d4ba3ea" />
+<img width="1878" height="847" alt="image" src="https://github.com/user-attachments/assets/54f858b4-90a8-402e-93f7-79535e90941e" />
+<img width="244" height="532" alt="image" src="https://github.com/user-attachments/assets/7f150817-a7bd-420b-9e4c-e9885bde414b" />
+
+
+
+## 9. Demo Video
+
+A video demonstrating the working of the AI SaaS Platform for Well Drilling Data is available [here](https://drive.google.com/drive/folders/1haUIx0UFGZqtmkYW8fdML3lsuT-DYTCB?usp=sharing).
+
+
+
+
