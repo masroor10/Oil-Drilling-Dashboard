@@ -1,9 +1,9 @@
 import { Box, IconButton, List, Typography, useTheme } from '@mui/material';
-import { SidebarLeft, SidebarRight } from 'iconsax-react';
 import { FC } from 'react';
 
 import { bottomNave, sidebarContainer } from './style';
 import { Well } from '../../types';
+import { SidebarLeft01Icon, SidebarRight01Icon } from 'hugeicons-react';
 
 interface SidebarProps {
   isCollapsed: boolean;
@@ -50,7 +50,7 @@ export const Sidebar: FC<SidebarProps> = ({
           </Box>
           {!isCollapsed && !isDrawer && (
             <IconButton onClick={handleCollapsed}>
-              <SidebarLeft color={theme.palette.text.disabled} />
+              <SidebarLeft01Icon color={theme.palette.text.disabled} />
             </IconButton>
           )}
           {isCollapsed && !isDrawer && (
@@ -64,7 +64,7 @@ export const Sidebar: FC<SidebarProps> = ({
               }}
               onClick={handleCollapsed}
             >
-              <SidebarRight color={theme.palette.text.disabled} />
+              <SidebarRight01Icon color={theme.palette.text.disabled} />
             </IconButton>
           )}
         </Box>

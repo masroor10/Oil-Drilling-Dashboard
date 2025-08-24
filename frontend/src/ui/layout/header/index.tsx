@@ -2,7 +2,7 @@ import { Box, Drawer, IconButton, Typography, useMediaQuery, useTheme } from '@m
 
 import { headerContainer } from '../sidebar/style';
 import { useState } from 'react';
-import { Hamburger01Icon } from 'hugeicons-react';
+import { Menu01Icon } from 'hugeicons-react';
 import { Sidebar } from '../sidebar';
 import { Well } from '../../types';
 
@@ -41,7 +41,7 @@ export const Header: React.FC<IHeaderProps> = ({
       </Box>
       {isXs && (
         <IconButton onClick={() => setDrawerOpen(true)} sx={{ mr: 1 }}>
-          <Hamburger01Icon />
+          <Menu01Icon />
         </IconButton>
       )}
       <Drawer
