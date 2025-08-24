@@ -35,13 +35,13 @@ Drilling companies generate massive amounts of well data, including depths, rock
 **Chatbot Integration:**
 - Chat interface for asking questions about uploaded well data.
 - Display user messages and AI responses.
-- Use API for AI responses (OpenAI / Claude / AWS Bedrock).
+- Use API for AI responses (Integrated but my quota limit reached).
 
 **Responsive Design:**
 - UI adjusts for desktop, tablet, and mobile.
 
 **Deployment & Hosting:**
-- Host frontend on AWS S3/CloudFront or GitHub Pages.
+- Host frontend on GitHub Pages (Paid Feature).
 - Host backend on AWS EC2 / Elastic Beanstalk.
 
 ### Non-Functional Requirements
