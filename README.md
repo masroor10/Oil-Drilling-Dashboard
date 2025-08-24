@@ -52,6 +52,8 @@ Drilling companies generate massive amounts of well data, including depths, rock
 ---
 
 ## 3. Proposed Architecture
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/65ba67c0-f65c-43bf-aa3f-4d65fb671b24" />
+
 **Explanation:**
 
 - **Frontend:** React with MUI, organized into Layout (Header + Sidebar + Outlet) and Dashboard (Tabs: Data Visualization, Chatbot).  
@@ -99,7 +101,7 @@ npm start
 
 ---
 
-## 9. Demo Video
+## 8. Demo Video
 
 A video demonstrating the working of the AI SaaS Platform for Well Drilling Data is available [here](https://drive.google.com/drive/folders/1haUIx0UFGZqtmkYW8fdML3lsuT-DYTCB?usp=sharing).
 
