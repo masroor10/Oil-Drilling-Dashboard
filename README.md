@@ -97,10 +97,12 @@ npm start
 ```
 ---
 
+---
+
 ## 9. Demo Video
 
-A video demonstrating the working of the AI SaaS Platform for Well Drilling Data is available [here]([https://drive.google.com/file/d/YOUR_VIDEO_ID/view?usp=sharing](https://drive.google.com/drive/folders/1haUIx0UFGZqtmkYW8fdML3lsuT-DYTCB?usp=sharing)).
+A video demonstrating the working of the AI SaaS Platform for Well Drilling Data is available [here](https://drive.google.com/drive/folders/1haUIx0UFGZqtmkYW8fdML3lsuT-DYTCB?usp=sharing).
 
-*Note: Replace `YOUR_VIDEO_ID` with the actual ID of your Google Drive video file.*
+
 
 
