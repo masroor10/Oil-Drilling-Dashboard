@@ -89,7 +89,7 @@ cd frontend
 npm install
 npm start
 ```
-### Frontend
+### Backend
 ```bash
 cd backend
 npm install
