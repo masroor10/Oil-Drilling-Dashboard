@@ -148,8 +148,14 @@ jobs:
           git config --global user.email "102370535+masroor10@users.noreply.github.com"
           npx gh-pages -d build -r https://x-access-token:${{ secrets.OIL_TOKEN }}@github.com/${{ github.repository }}.git
 ```
+## 8. ScreenShots
+<img width="1871" height="860" alt="image" src="https://github.com/user-attachments/assets/f17d89d1-b695-423e-84b1-52f92d4ba3ea" />
+<img width="1878" height="847" alt="image" src="https://github.com/user-attachments/assets/54f858b4-90a8-402e-93f7-79535e90941e" />
+<img width="244" height="532" alt="image" src="https://github.com/user-attachments/assets/7f150817-a7bd-420b-9e4c-e9885bde414b" />
 
-## 8. Demo Video
+
+
+## 9. Demo Video
 
 A video demonstrating the working of the AI SaaS Platform for Well Drilling Data is available [here](https://drive.google.com/drive/folders/1haUIx0UFGZqtmkYW8fdML3lsuT-DYTCB?usp=sharing).
 
