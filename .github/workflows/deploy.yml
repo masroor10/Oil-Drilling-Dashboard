@@ -32,5 +32,5 @@ jobs:
         working-directory: frontend
         run: |
           git config --global user.name "masroor10"
-          git config --global user.email "123456+masroor10@users.noreply.github.com"
+          git config --global user.email "102370535+masroor10@users.noreply.github.com"
           npx gh-pages -d build -r https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
