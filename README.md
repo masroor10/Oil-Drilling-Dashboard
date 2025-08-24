@@ -100,6 +100,50 @@ npm start
 ---
 
 ---
+## 7. CI/CD Pipeline: Deploy Frontend to GitHub Pages
+
+The frontend of this project is automatically built and deployed to GitHub Pages using GitHub Actions. The pipeline triggers on pushes to the `main` branch.
+
+### Workflow Configuration
+
+```yaml
+name: Deploy Frontend to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        working-directory: frontend
+        run: npm install
+
+      - name: Build
+        working-directory: frontend
+        run: NODE_OPTIONS="--max_old_space_size=4096" npm run build
+
+      - name: Deploy
+        working-directory: frontend
+        run: |
+          git config --global user.name "masroor10"
+          git config --global user.email "102370535+masroor10@users.noreply.github.com"
+          npx gh-pages -d build -r https://x-access-token:${{ secrets.OIL_TOKEN }}@github.com/${{ github.repository }}.git
+```
 
 ## 8. Demo Video
 
