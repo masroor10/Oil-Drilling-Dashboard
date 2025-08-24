@@ -2,7 +2,6 @@ import merge from 'lodash/merge';
 import { Theme } from '@mui/material/styles';
 import { button } from './components/button';
 import { textField } from './components/textfield';
-import { avatar } from './components/avatar';
 import { fab } from './components/fab';
 import { dialog } from './components/dialog';
 import { list } from './components/list';
@@ -23,7 +22,6 @@ export function componentsOverrides(theme: Theme) {
   const components = merge(
     button(theme),
     textField(theme),
-    avatar(theme),
     IconButton(theme),
     fab(theme),
     dialog(theme),
