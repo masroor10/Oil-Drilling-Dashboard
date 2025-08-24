@@ -51,8 +51,11 @@ Drilling companies generate massive amounts of well data, including depths, rock
 
 ---
 
-## 3. Proposed Architecture
-<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/65ba67c0-f65c-43bf-aa3f-4d65fb671b24" />
+## 3. Proposed Architecture Workflows
+
+<img width="790" height="634" alt="image" src="https://github.com/user-attachments/assets/04c6c160-815c-48b7-8f65-f56c96e4e730" />
+
+
 
 **Explanation:**
 
@@ -76,7 +79,6 @@ Drilling companies generate massive amounts of well data, including depths, rock
 ---
 
 ## 5. Data Flow
-<img width="790" height="634" alt="image" src="https://github.com/user-attachments/assets/04c6c160-815c-48b7-8f65-f56c96e4e730" />
 
 
 1. User selects a well from sidebar → Frontend fetches details from backend → Updates dashboard.  
