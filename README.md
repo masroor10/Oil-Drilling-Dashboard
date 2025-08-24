@@ -76,6 +76,8 @@ Drilling companies generate massive amounts of well data, including depths, rock
 ---
 
 ## 5. Data Flow
+<img width="790" height="634" alt="image" src="https://github.com/user-attachments/assets/04c6c160-815c-48b7-8f65-f56c96e4e730" />
+
 
 1. User selects a well from sidebar → Frontend fetches details from backend → Updates dashboard.  
 2. User uploads Excel file → Frontend sends POST request to backend → Backend stores file and parses data → Sends success/failure → Frontend updates chart.  
