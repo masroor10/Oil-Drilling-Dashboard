@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/Oil-Drilling-Dashboard/static/css/main.f7462f3b.css",
-    "main.js": "/Oil-Drilling-Dashboard/static/js/main.504afa99.js",
-    "static/js/222.06ab55fe.chunk.js": "/Oil-Drilling-Dashboard/static/js/222.06ab55fe.chunk.js",
-    "static/js/92.ee61144a.chunk.js": "/Oil-Drilling-Dashboard/static/js/92.ee61144a.chunk.js",
-    "index.html": "/Oil-Drilling-Dashboard/index.html",
-    "main.f7462f3b.css.map": "/Oil-Drilling-Dashboard/static/css/main.f7462f3b.css.map",
-    "main.504afa99.js.map": "/Oil-Drilling-Dashboard/static/js/main.504afa99.js.map",
-    "222.06ab55fe.chunk.js.map": "/Oil-Drilling-Dashboard/static/js/222.06ab55fe.chunk.js.map",
-    "92.ee61144a.chunk.js.map": "/Oil-Drilling-Dashboard/static/js/92.ee61144a.chunk.js.map"
+    "main.css": "/static/css/main.f7462f3b.css",
+    "main.js": "/static/js/main.84c88eac.js",
+    "static/js/222.140c7d26.chunk.js": "/static/js/222.140c7d26.chunk.js",
+    "static/js/92.ee61144a.chunk.js": "/static/js/92.ee61144a.chunk.js",
+    "index.html": "/index.html",
+    "main.f7462f3b.css.map": "/static/css/main.f7462f3b.css.map",
+    "main.84c88eac.js.map": "/static/js/main.84c88eac.js.map",
+    "222.140c7d26.chunk.js.map": "/static/js/222.140c7d26.chunk.js.map",
+    "92.ee61144a.chunk.js.map": "/static/js/92.ee61144a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f7462f3b.css",
-    "static/js/main.504afa99.js"
+    "static/js/main.84c88eac.js"
   ]
 }
