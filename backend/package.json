@@ -12,9 +12,8 @@
     "xlsx": "^0.18.5"
   },
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "nodemon src/server.js",
-    "heroku-postbuild": "cd ../frontend && npm install && npm run build"
+    "start": "nodemon src/server.js",
+    "dev": "nodemon src/server.js"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"

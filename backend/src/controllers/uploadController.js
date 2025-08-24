@@ -2,8 +2,6 @@ import xlsx from 'xlsx';
 import { v4 as uuidv4 } from 'uuid';
 
 export const handleFileUpload = (req, res) => {
-  console.log('Received file:', req.file);
-
   try {
     if (!req.file) {
       return res.status(400).json({ success: false, message: 'No file uploaded' });

@@ -1,4 +1,3 @@
-// Each row of Excel is a WellData record
 export type WellData = {
   depth: number;
   dt?: number;

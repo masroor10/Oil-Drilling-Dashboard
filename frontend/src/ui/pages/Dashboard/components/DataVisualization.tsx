@@ -12,7 +12,8 @@ import {
   Title,
   Tooltip,
   Legend,
-  Filler
+  Filler,
+  Chart
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import { WellData } from '../../../types';
@@ -95,24 +96,39 @@ const WellDataVisualization: React.FC<WellDataVisualizationProps> = ({ data }) =
       mode: 'index' as const,
       intersect: false
     },
+    indexAxis: 'y' as const,
     scales: {
       x: {
-        title: { display: true, text: 'Depth' },
-        reverse: true
+        title: { display: true, text: 'Value' }
       },
       y: {
-        title: { display: true, text: 'Value' }
+        title: { display: true, text: 'Depth' },
+        reverse: true
       }
     },
     plugins: {
-      legend: { position: 'top' as const }
+      legend: {
+        position: 'top' as const,
+        labels: {
+          usePointStyle: false,
+          boxWidth: 20,
+          boxHeight: 12,
+          generateLabels: (chart: Chart) => {
+            const original = ChartJS.defaults.plugins.legend.labels.generateLabels(chart);
+            return original.map((label) => ({
+              ...label,
+              fillStyle: label.strokeStyle,
+              strokeStyle: label.strokeStyle
+            }));
+          }
+        }
+      }
     }
   };
 
   return (
     <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column', gap: 2 }}>
       <Grid container spacing={2} sx={{ height: '100%' }}>
-        {/* Rock Composition */}
         <Grid size={{ xs: 12, md: 4 }}>
           <Paper elevation={1} sx={{ height: '100%', p: 2 }}>
             <Typography variant='h6' sx={{ mb: 1, textAlign: 'center' }}>
@@ -127,7 +143,6 @@ const WellDataVisualization: React.FC<WellDataVisualizationProps> = ({ data }) =
           </Paper>
         </Grid>
 
-        {/* DT */}
         <Grid size={{ xs: 12, md: 4 }}>
           <Paper elevation={1} sx={{ height: '100%', p: 2 }}>
             <Typography variant='h6' sx={{ mb: 1, textAlign: 'center' }}>

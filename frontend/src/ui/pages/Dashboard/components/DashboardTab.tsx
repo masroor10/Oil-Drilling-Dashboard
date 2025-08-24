@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import {
   Box,
   Tabs,
@@ -26,29 +26,27 @@ const DashboardTabs: React.FC<DashboardTabsProps> = ({ activeTab, setActiveTab, 
   const theme = useTheme();
   const isXs = useMediaQuery(theme.breakpoints.only('xs'));
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const [uploadStatus, setUploadStatus] = React.useState<UploadStatus>({
+  const [uploadStatus, setUploadStatus] = useState<UploadStatus>({
     open: false,
     message: '',
     severity: 'success'
   });
 
-  const tabs: TabData[] = [
+  const [tabs, setTabs] = useState<TabData[]>([
     { label: 'Drilling Monitoring', closable: false, id: 'drilling' },
     { label: 'Offset Wells Map', closable: true, id: 'wells-map' },
     { label: 'Bit Summary', closable: true, id: 'bit-summary' }
-  ];
-
+  ]);
   const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
     setActiveTab(newValue);
   };
 
-  const [uploadedFiles, setUploadedFiles] = React.useState<Set<string>>(new Set());
+  const [uploadedFiles, setUploadedFiles] = useState<Set<string>>(new Set());
 
   const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (!file) return;
 
-    // ✅ Check if this file was already uploaded
     if (uploadedFiles.has(file.name)) {
       setUploadStatus({
         open: true,
@@ -93,7 +91,6 @@ const DashboardTabs: React.FC<DashboardTabsProps> = ({ activeTab, setActiveTab, 
 
         onDataUpload(newWell);
 
-        // ✅ Add file to uploadedFiles Set
         setUploadedFiles((prev) => new Set(prev).add(file.name));
 
         setUploadStatus({
@@ -125,7 +122,11 @@ const DashboardTabs: React.FC<DashboardTabsProps> = ({ activeTab, setActiveTab, 
   };
 
   const handleCloseTab = (tabIndex: number) => {
-    console.log('Close tab:', tabIndex);
+    setTabs((prev) => prev.filter((_, i) => i !== tabIndex));
+
+    if (activeTab >= tabs.length - 1) {
+      setActiveTab(tabs.length - 2 >= 0 ? tabs.length - 2 : 0);
+    }
   };
 
   return (

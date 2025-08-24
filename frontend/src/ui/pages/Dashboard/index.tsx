@@ -55,7 +55,6 @@ const Dashboard: React.FC = () => {
         </Grid>
         {isDownLg ? (
           <>
-            {' '}
             <Fab
               color='info'
               sx={{ position: 'fixed', bottom: 24, right: 24 }}

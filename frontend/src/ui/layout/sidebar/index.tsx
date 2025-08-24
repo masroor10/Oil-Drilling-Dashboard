@@ -102,7 +102,7 @@ export const Sidebar: FC<SidebarProps> = ({
                   mb: 1,
                   borderRadius: 1,
                   width: '100%',
-                  bgcolor: well.id === selectedWell?.id ? theme.palette.grey[600] : 'transparent',
+                  bgcolor: well.id === selectedWell?.id ? theme.palette.grey[400] : 'transparent',
                   '&:hover': { bgcolor: 'action.hover' }
                 }}
               >
